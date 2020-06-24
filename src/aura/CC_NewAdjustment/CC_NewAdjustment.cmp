@@ -1,0 +1,15 @@
+<aura:component extends="c:CC_ModalTemplate" implements="force:hasRecordId" controller="CC_NewAdjustment_ctrl">
+    <aura:attribute name="amount" type="Decimal" default="0" />
+    <aura:attribute name="currencyIsoCode" type="String" default="EUR" />
+    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+        <lightning:input type="number" name="input2" label="Amount" value="{!v.amount}"/>
+        <lightning:select name="select1" label="Currency ISO Code" value="{!v.currencyIsoCode}">
+            <option value="EUR">EUR</option>
+            <option value="USD">USD</option>
+        </lightning:select>
+    </div>
+    <footer class="slds-modal__footer">
+        <button class="slds-button slds-button_neutral" onclick="{!c.closeModal}">Cancel</button>
+        <button class="slds-button slds-button_brand" onclick="{!c.save}">Save</button>
+    </footer>
+</aura:component>
