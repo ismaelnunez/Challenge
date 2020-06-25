@@ -37,7 +37,8 @@ public with sharing class CC_Authentication {
             res = new HTTPResponse();
             res.setBody(integrationConfigAuth.CC_Mock__c);
         }else{
-            HttpRequest httpReqAuth = new HttpRequest();
+            //comment 
+            /*HttpRequest httpReqAuth = new HttpRequest();
             httpReqAuth.setMethod(integrationConfigAuth.CC_Method__c);
             httpReqAuth.setEndpoint(integrationConfigAuth.CC_Endpoint__c);
             CC_AuthRequest authWrapper = new CC_AuthRequest();
@@ -45,7 +46,7 @@ public with sharing class CC_Authentication {
             httpReqAuth.setBody(JSON.serialize(authWrapper));
 
             Http http = new Http();
-            res = http.send(httpReqAuth);
+            res = http.send(httpReqAuth);*/
         }
 
         CC_AuthResponse authResponse = (CC_Authentication.CC_AuthResponse) JSON.deserialize(res.getBody(), CC_Authentication.CC_AuthResponse.class);

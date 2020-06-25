@@ -23,7 +23,8 @@ public with sharing class CC_NewAdjustment_ctrl {
             Case cs = new Case(     
                                 AccountId = recordId, 
                                 Status = amount>1000?'IN_PROGRESS':'CLOSED',
-                                CC_Adjustment_Id__c = adjResponse.adjustmentId
+                                CC_Adjustment_Id__c = adjResponse.adjustmentId,
+                                Origin = 'Web'
                             );
             insert cs;
 
