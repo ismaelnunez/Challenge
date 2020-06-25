@@ -1,0 +1,14 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:hasRecordId" controller="CC_Transactions_ctrl">
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+
+    <aura:attribute name="jsonPanel" type="Object[]" />
+    <aura:attribute name="columns" type="List" default="[
+    {'label': 'Resource Id', 'fieldName': 'resourceId', 'type': 'number'},
+    {'label': 'Name', 'fieldName': 'name', 'type': 'text'},
+    {'label': 'Balance Type', 'fieldName': 'balanceType', 'type': 'text'},
+    {label: 'Amount', fieldName: 'amount', type: 'currency', typeAttributes: { currencyCode: { fieldName: 'CurrencyIsoCode' }, maximumSignificantDigits: 5}},
+    {label: 'Transaction Date', fieldName: 'transactionDate', type: 'date'}
+    ]"/>
+
+    <c:CC_PanelInfo lstJson="{!v.jsonPanel}" columns="{!v.columns}" recordId="{!v.recordId}"/>
+</aura:component>

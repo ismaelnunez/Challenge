@@ -1,0 +1,32 @@
+<aura:component implements="force:hasRecordId">
+    <aura:attribute name="lstJson" type="Object[]" />
+    <aura:attribute name="data" type="List" />
+    <aura:attribute name="columns" type="List" />
+
+    {!v.body}
+    <aura:iteration items="{!v.lstJson}" var="item">
+        <lightning:card iconName="standard:account" title="{!item.title}">
+            <aura:set attribute="actions">
+                <lightning:button label="New adjustment" onclick="{!c.newAdjustment}" />
+            </aura:set>
+            <p class="slds-p-horizontal_small">
+                <lightning:layout multipleRows="true">
+                    <lightning:layoutItem padding="around-small" size="6">
+                        <lightning:input type="checkbox" label="Account Status" name="input3" checked="{!item.field1 == 'enabled'}" disabled="true"/>
+                    </lightning:layoutItem>
+                    <lightning:layoutItem padding="around-small" size="6">
+                        <lightning:input name="input4" readonly="true" value="{!item.field2}" label="Product" />
+                    </lightning:layoutItem>
+                    <lightning:layoutItem padding="around-small" size="12">
+                        <lightning:datatable
+                            keyField="id"
+                            data="{!item.dataList}"
+                            columns="{!v.columns}"/>
+                    </lightning:layoutItem>
+                </lightning:layout>
+
+            </p>
+        </lightning:card>
+    </aura:iteration>
+
+</aura:component>

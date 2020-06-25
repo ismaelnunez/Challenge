@@ -1,0 +1,25 @@
+<aura:component abstract="true">
+
+   <aura:attribute name="title" type="String" default="Default Modal Template Header"/>
+   <aura:attribute name="closeButton" type="Boolean" default="true" />
+   <aura:attribute name="customStyle" type="String" default="" />
+
+   <section class="slds-modal slds-fade-in-open">
+       <div class="slds-modal__container" style="{!v.customStyle}">
+           <div class="slds-modal__header">
+               <aura:if isTrue="{!v.closeButton}">
+                   <button class="slds-button slds-button--icon-inverse slds-modal__close" onclick="{!c.closeModal}">
+                       <lightning:icon iconName="utility:close" size="medium" variant="bare" />
+                       <span class="slds-assistive-text">Close</span>
+                   </button>
+               </aura:if>
+               <h2 class="slds-text-heading--medium">{!v.title}</h2>
+           </div>
+
+           {!v.body}
+       </div>
+   </section>
+
+   <div class="slds-backdrop slds-backdrop_open"></div>
+
+</aura:component>
